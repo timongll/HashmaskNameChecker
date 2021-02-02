@@ -96,7 +96,7 @@ class App extends Component {
     return (
       <div className="App"> 
         <h1> HashMask Name Checker </h1>
-        <body> is name available?:  {(this.state.isNameAvailable).toString()}
+        <body> Is name available?:  {(this.state.isNameAvailable).toString()}
         <br></br>
         <br></br>
         <Input type="text" placeholder="" onChange={this.handleChangeTempName}/>     
