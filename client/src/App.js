@@ -67,7 +67,7 @@ class App extends Component {
           if(val){
             isNameAvailable = "No"
           } else {
-            isNameAvailable = "YES"
+            isNameAvailable = "Yes"
           }
         })
         await this.state.hashmaskContract.methods.validateName(this.state.name).call().then(async val=>{
