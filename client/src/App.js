@@ -105,7 +105,7 @@ class App extends Component {
         {this.state.isValid}
         <br></br>
         <br></br> 
-        <img src= {HashImg} alt="hashimg" class="center"></img>
+        <img src= {HashImg} size = "50%" alt="hashimg" class="center"></img>
          </body>
          
       </div>
