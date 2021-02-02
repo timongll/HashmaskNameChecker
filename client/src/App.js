@@ -15,7 +15,7 @@ class App extends Component {
     accounts: "",
     hashmaskContract: "",
     name: "",
-    isNameAvailable: false,
+    isNameAvailable: "",
     isValid: ""
 
     
