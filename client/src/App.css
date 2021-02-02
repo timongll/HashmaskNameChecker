@@ -1,0 +1,82 @@
+.App {
+  padding: 10px;
+  text-align: center;
+  height:100vh; 
+  width: 100vw;
+  background-repeat: no-repeat; 
+  background-position: center center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.App:before {
+  opacity: 50%;
+}
+
+.rounded-corners {
+  border-radius: 25px;
+}
+.App-logo {
+  margin-left: auto;
+  margin-right: auto;
+  position:absolute;
+  height: 40vmin;
+  text-align: center
+}
+
+.table {
+  table-layout: fixed ;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 80vw;
+}
+
+.table2 {
+  table-layout: fixed ;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 60vw;
+}
+
+.table3 {
+  table-layout: fixed ;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 80vw;
+}
+
+.headers {
+  text-align: center;
+}
+
+.td {
+  text-align: center;
+  width: 26.6vw;
+}
+.App-header {
+  margin-left: auto;
+  margin-right: auto;
+  position:absolute;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.header{
+  font-size: 50px;
+}
+
+.App-link {
+  text-align: center;
+}
