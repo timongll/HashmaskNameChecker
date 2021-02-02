@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
 import getWeb3 from "./getWeb3.js";
-import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
 import Hashmask from "./build/hashmask.json";
 
