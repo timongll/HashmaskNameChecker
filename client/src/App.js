@@ -3,7 +3,7 @@ import "./App.css";
 import getWeb3 from "./getWeb3.js";
 import Input from '@material-ui/core/Input';
 import Hashmask from "./build/hashmask.json";
-
+import HashImg from "./hashmask.jpg";
 const hashmaskAddress = "0xC2C747E0F7004F9E8817Db2ca4997657a7746928"
 
 class App extends Component {
@@ -15,7 +15,8 @@ class App extends Component {
     accounts: "",
     hashmaskContract: "",
     name: "",
-    isNameAvailable: false
+    isNameAvailable: false,
+    isValid: ""
 
     
    }
@@ -36,23 +37,50 @@ class App extends Component {
         userAccount = accounts[0];
       }
 
+
+
       this.setState({ 
         accounts: userAccount,
         web3: web3, 
-        hashmaskContract: hashmaskContract
+        hashmaskContract: hashmaskContract,
+        name: ""
       })
 
+      //var letterNumber = /^[A-Za-z0-9 ]+$/;
+
       var isNameAvailable;
+      var isValid;
       setInterval(async () => {
-        await this.state.hashmaskContract.methods.isNameReserved(this.state.name).call().then(async val=>{
+        /*if((this.state.name).charAt(0)===" " || (this.state.name).charAt(((this.state.name).length)-1)===" "){
+          this.setState({error: "first or last character cant be space"})
+        } else if((this.state.name).includes("  ")){
+          this.setState({error: "no double space"})
+        } else if((this.state.name).length>25){
+          this.setState({error: "only 25 symbols"})
+        } //else if(!letterNumber.test(this.state.name)){
+          //this.setState({error: "only alphanumerical digits"})
+        //} 
+          else {
+          this.setState({error: ""});
+          */
+          await this.state.hashmaskContract.methods.isNameReserved(this.state.name).call().then(async val=>{
           if(val){
-            isNameAvailable = "NO"
+            isNameAvailable = "No"
           } else {
             isNameAvailable = "YES"
           }
         })
+        await this.state.hashmaskContract.methods.validateName(this.state.name).call().then(async val=>{
+          if(val){
+            isValid = "Valid name"
+          } else {
+            isValid = "Invalid name"
+          }
+        })
       this.setState({isNameAvailable: isNameAvailable})
-      }, 100);
+      this.setState({isValid: isValid})
+      }, 1000);
+
     } catch (error) {
       // Catch any errors for any of the above operations.
       console.error(error);
@@ -60,7 +88,7 @@ class App extends Component {
   };
 
 
-  handleChangeTempName = (event) => {
+  handleChangeTempName = async (event) => {
     this.setState({name: event.target.value});
   }
 
@@ -73,6 +101,11 @@ class App extends Component {
         <br></br>
         <Input type="text" placeholder="" onChange={this.handleChangeTempName}/>     
         <br></br>
+        <br></br>
+        {this.state.isValid}
+        <br></br>
+        <br></br> 
+        <img src= {HashImg} alt="hashimg" class="center"></img>
          </body>
          
       </div>
