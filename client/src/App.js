@@ -79,7 +79,7 @@ class App extends Component {
         })
       this.setState({isNameAvailable: isNameAvailable})
       this.setState({isValid: isValid})
-      }, 1000);
+      }, 100);
 
     } catch (error) {
       // Catch any errors for any of the above operations.
